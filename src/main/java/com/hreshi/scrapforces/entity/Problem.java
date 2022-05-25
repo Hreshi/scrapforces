@@ -13,5 +13,7 @@ public class Problem {
 	public String getProblemLink () {
 		return String.format(problemLink, contestId+"", index);	
 	}
-
+	public String code () {
+		return index + contestId;
+	}
 }

@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 
 import com.hreshi.scrapforces.service.SubmissionFetcher;
+import com.hreshi.scrapforces.service.ProblemFilter;
 
 @Component
 public class Configuration {
@@ -26,5 +27,12 @@ public class Configuration {
 	public SubmissionFetcher getSubmissionFetcher (@Autowired ObjectMapper mapper) {
 		SubmissionFetcher fetcher = new SubmissionFetcher(mapper);
 		return fetcher;
+	}
+
+	@Bean
+	@Scope("prototype")
+	public ProblemFilter getProblemFilter (@Autowired SubmissionFetcher fetcher) {
+		ProblemFilter filter = new ProblemFilter(fetcher);
+		return filter;
 	}
 }

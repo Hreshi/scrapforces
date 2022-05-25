@@ -7,5 +7,12 @@ public class Submission {
 	public String verdict;
 
 	public Submission () {}
+
+	public boolean isAccepted () {
+		return verdict.equalsIgnoreCase("ok");
+	}
+	public Problem getProblem () {
+		return problem;
+	}
 	
 }

@@ -20,7 +20,7 @@ import com.hreshi.scrapforces.entity.Submission;
 
 public class SubmissionFetcher {
 	ObjectMapper mapper;
-	static String urlTemplate = "https://codeforces.com/api/user.status?handle=%s&from=1&count=3";
+	static String urlTemplate = "https://codeforces.com/api/user.status?handle=%s";
 
 	public SubmissionFetcher (ObjectMapper mapper) {
 		this.mapper = mapper;
