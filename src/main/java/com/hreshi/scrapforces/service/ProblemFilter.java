@@ -10,7 +10,6 @@ public class ProblemFilter {
 	public ProblemFilter () {}
 
 	public List<Problem> getUniqueProblems (List<Submission> list) {
-		List<Problem> res = new ArrayList<>();
-		return res;
+		
 	}
 }
