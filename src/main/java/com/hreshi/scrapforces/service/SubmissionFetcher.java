@@ -8,8 +8,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 
-import com.hreshi.scrapforces.entity.Submission;
-
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -17,6 +15,8 @@ import java.net.http.HttpResponse.BodyHandlers;
 import java.net.URI;
 
 import java.util.List;
+
+import com.hreshi.scrapforces.entity.Submission;
 
 public class SubmissionFetcher {
 	ObjectMapper mapper;
