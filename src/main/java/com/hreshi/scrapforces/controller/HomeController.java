@@ -12,12 +12,22 @@ import java.util.Map;
 
 @Controller
 public class HomeController {
-	@Autowired
+	@Autowired 
 	ProblemFilter filter;
 	
 	@GetMapping("stats")
 	@ResponseBody
 	public Map<Integer, Integer> sendRatingStats (@RequestParam String handle) {
-		return filter.getRatingMap(handle);
+		try {
+			Map<Integer, Integer> map = filter.getRatingMap(handle);
+			return map;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	@GetMapping("")
+	public String sendHomePage () {
+		return "home";
 	}
 }

@@ -20,12 +20,13 @@ public class ProblemFilter {
 	public Map<Integer, Integer> getRatingMap (String handle) {
 		Map<Integer, Integer> ratingMap = new HashMap<Integer, Integer>();
 		Set<String> set = new HashSet<String>();
+
 		allSubmissions = fetcher.getSubmissions(handle);
+		long t3 = System.nanoTime();
 		for (Submission sub : allSubmissions) {
 			if (sub.isAccepted()) {
 				Problem problem = sub.getProblem();
 				String code = problem.code();
-				System.out.println(code);
 				if (!set.contains(code)) {
 					set.add(code);
 					updateMap(ratingMap, problem.rating);

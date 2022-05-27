@@ -30,7 +30,8 @@ public class SubmissionFetcher {
 		String url = String.format(urlTemplate, username);
 		try {	
 			String responseBody = fetch (url);
-			return getListFromJson (responseBody);
+			List<Submission> list =  getListFromJson (responseBody);
+			return list;
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
