@@ -1,5 +1,9 @@
 package com.hreshi.scrapforces.service;
 
+import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+
+
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -9,20 +13,13 @@ import java.util.HashSet;
 import com.hreshi.scrapforces.entity.Submission;
 import com.hreshi.scrapforces.entity.Problem;
 
+@Component
 public class ProblemFilter {
 	List<Submission> allSubmissions;
-	List<Problem> problems;
-	SubmissionFetcher fetcher;
-	public ProblemFilter (SubmissionFetcher fetcher) {
-		this.fetcher = fetcher;
-	}
-
-	public Map<Integer, Integer> getRatingMap (String handle) {
+	
+	public Map<Integer, Integer> getRatingMap (List<Submission> allSubmissions) {
 		Map<Integer, Integer> ratingMap = new HashMap<Integer, Integer>();
 		Set<String> set = new HashSet<String>();
-
-		allSubmissions = fetcher.getSubmissions(handle);
-		long t3 = System.nanoTime();
 		for (Submission sub : allSubmissions) {
 			if (sub.isAccepted()) {
 				Problem problem = sub.getProblem();

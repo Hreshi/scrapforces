@@ -1,8 +1,8 @@
 package com.hreshi.scrapforces.service;
 
+import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.Bean;
 import org.springframework.beans.factory.annotation.Autowired;
-
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -18,13 +18,11 @@ import java.util.List;
 
 import com.hreshi.scrapforces.entity.Submission;
 
+@Component
 public class SubmissionFetcher {
+	@Autowired
 	ObjectMapper mapper;
 	static String urlTemplate = "https://codeforces.com/api/user.status?handle=%s";
-
-	public SubmissionFetcher (ObjectMapper mapper) {
-		this.mapper = mapper;
-	}
 
 	public List<Submission> getSubmissions (String username) {
 		String url = String.format(urlTemplate, username);
