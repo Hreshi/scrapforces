@@ -11,7 +11,7 @@ public class RatingCacheCleaner {
 	@Autowired 
 	RatingMapCache cache;
 
-	@Scheduled(cron = "0 0 6 * * *")
+	@Scheduled(cron = "0 0 0 * * *")
 	public void cleanCacheFromMemory () {
 		cache.clear();
 	}
