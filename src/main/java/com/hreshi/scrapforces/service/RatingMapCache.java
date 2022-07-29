@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 import java.util.HashMap;
 
-@Component
 public class RatingMapCache {
 	Map<String, Map<Integer, Integer>> ratingMapCache;
 	
