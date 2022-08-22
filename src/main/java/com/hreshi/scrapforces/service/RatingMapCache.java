@@ -12,7 +12,7 @@ public class RatingMapCache {
 		ratingMapCache = new HashMap<String, Map<Integer, Integer>>();
 	}
 
-	public void put (String handle, Map<Integer, Integer> map) {
+	public synchronized void put (String handle, Map<Integer, Integer> map) {
 		if (ratingMapCache.containsKey(handle)) {
 			ratingMapCache.replace(handle, map); 
 		} else {
@@ -27,7 +27,7 @@ public class RatingMapCache {
 		return null;
 	}
 
-	public void clear () {
+	public synchronized void clear () {
 		ratingMapCache.clear();
 	}
 }
